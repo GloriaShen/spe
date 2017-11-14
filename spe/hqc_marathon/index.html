@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2017华侨城·剑门关蜀道半程国际马拉松大赛</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/style.min.css?2017">
+	<!-- <link rel="prefetch" href="assets/bgm.mp3" />  -->
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+</head>
+<body>
+<div class="music roll">
+	<audio id="audio" src="assets/bgm.mp3" preload="auto" loop hidden="true"/>
+</div>
+<div class="prepare-page">
+	<div class="inner">
+		<img class="loading" src="assets/images/loading.gif">
+		<div class="progress">
+			<div class="progressbar"></div>
+		</div>
+	</div>
+</div>
+<div class="main-page">
+	<div class="show-box">
+		<!-- <img class="bg-img" src="assets/images/10.gif" alt="三弟的身高和宽度都 一样了，这如何是好">
+		<div class="uinfo">
+			<img src="assets/images/guanyu.png" alt="关羽" class="avtr">
+			<p class="words">燕人张翼德等你来战！</p>
+		</div> -->
+		<img class="bg-img" src="" alt="">
+		<p class="text"></p>   
+	</div>
+	<div class="tool-box" id="p1">
+		<img src="assets/images/btn.gif">
+		<p class="tip">请点击按钮继续游戏</p>
+		<i class="ball"></i>
+	</div>
+</div>
+<div class="join-page">
+	<div class="inner">
+		<img src="assets/images/code.png" alt="二维码">
+		<div class="tool-box">
+			<button class="again-btn">再玩一次</button>
+			<button class="share-btn">分享好友</button>
+		</div>
+	</div>
+</div>
+<div class="mask"></div>
+<script type="text/html" id="startTpl">
+	<div class="start-box">
+		<img class="start-title" src="assets/images/start_title.png" alt="" data-text="这个双十一，张飞出大事了">
+		<button class="start-btn"></button>
+	</div>
+</script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script> -->
+<script type="text/javascript" src="assets/preLoader.js"></script>
+<script type="text/javascript" src="assets/main.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
+<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
+<script>
+    TJData.config({
+        h5_id:'hqc_marathon'
+    });
+
+    $.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
+        wx.config({
+            appId    : res.appId,
+            timestamp: res.timestamp,
+            nonceStr : res.nonceStr,
+            signature: res.signature,
+            //debug    : true,
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareWeibo', 'onMenuShareQQ', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem']
+        });
+        wx.ready(function () {
+            var shareData = {
+                title : '这个双11 张飞出大事了',
+                desc  : '快来看好戏',
+                link  : "http://wx.hxpic.com/spe/hqc_marathon/index.php",
+                imgUrl: 'https://git.huaxi100.com/routine_work/routine_work/uploads/3dff2d5b88f656e0c91a3b6b408eb001/share.png'
+            };
+            wx.onMenuShareTimeline({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareTimeline
+            });
+            wx.onMenuShareAppMessage({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareAppMessage
+            });
+            console.log(TJData.shareLink(shareData.link));
+            console.log(shareData.link);
+        });
+    }, 'json');
+</script>
+</html>
+</body>
+</html>

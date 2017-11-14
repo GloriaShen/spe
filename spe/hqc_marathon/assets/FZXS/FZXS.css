@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "FZXS";
+  src: url("FZXS.woff2") format("woff2"),
+       url("FZXS.woff") format("woff"),
+       url("FZXS.ttf") format("truetype"),
+       url("FZXS.eot") format("embedded-opentype"),
+       url("FZXS.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

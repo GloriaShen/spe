@@ -1,0 +1,38 @@
+html,body,
+h1,h2,h3,h4,h5,h6,
+ul,li,header,
+input,button,
+p{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+em,i{
+	font-style: normal;
+}
+a,input,button{
+	outline: none;
+	border:0;
+}
+a{
+	text-decoration: none;
+}
+img{
+	display: block;
+	border:0;
+}
+body{
+	width: 100%;height: 100%;
+	font-size:.26rem;color: #333;
+}
+.clearfix{
+	&:before,&:after{
+		display: block;
+		content:'';
+		clear: both;
+		font-size:0;
+		position: relative;
+	}
+}
