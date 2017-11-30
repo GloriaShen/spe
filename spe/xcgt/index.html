@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>西城高铁</title>
+	 <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/styles/style.css?18">
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+
+</head>
+<body>
+	<div id="container" class="r90">
+		<div class="prepare-page">
+			<div class="inner">
+				<!-- <img class="loading" src="./static/images/loading.png"> -->
+				<div class="progresstext"></div>
+				<div class="progress">
+					<div class="progressbar"></div>
+				</div>
+			</div>
+		</div>
+		<div class="main-page">
+		</div>
+	</div>
+	<script type="text/html" id="page1">
+		<div class="page-1">
+			<img src="static/images/cdfer.png" alt="" class="logo">
+			<img src="static/images/title.png" alt="" class="title">
+			<img src="static/images/xian_title.png" alt="" class="subtitle">
+			<a class="start-btn" href="javascript:;"></a>
+			<p>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
+		</div>
+	</script>
+	<script type="text/html" id="page2">
+		<div class="page-2">
+			<div class="panel-box cc">
+				<div class="header">点击选择你的交通工具</div>
+				<a class="gt" href="javascript:;">高铁</a>
+				<a class="hj" href="javascript:;">灰机</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="comfirmTpl">
+		<div class="mask">
+			<div class="panel-box">
+				<div class="header">提示</div>
+				<p class="content">[content]</p>
+				<!-- <p class="content">确认选择<em>高铁</em>？</p> -->
+				<a class="confirm-btn" dataid="[id]" href="javascript:;">确 定</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="page3">
+		<div class="page-3">
+			<div class="extra-info">
+				<img src="static/images/bc.png" alt="bc" class="bc">
+				<img src="static/images/zb.png" alt="zb" class="zb">
+				<img src="static/images/map.png" alt="map" class="map">
+			</div>
+			<div class="main-info">
+				<p class="war-info">
+					剩余 <span class="wi-1">100</span>
+					行进 <span class="wi-2">712.8</span><br>	
+					物资 <span class="wi-3">90</span>
+				</p>
+				<div class="status-info">
+					<div class="dec"></div>
+					<p class="title">离开</p>
+					<p class="content">车内人数：<i>100</i></p>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="page4">
+		<div class="page-4">
+			<div class="extra-info">
+				<img src="static/images/bc.png" alt="bc" class="bc">
+				<img src="static/images/zb.png" alt="zb" class="zb">
+				<img src="static/images/map.png" alt="map" class="map">
+			</div>
+			<p class="war-info">
+				剩余 <span class="wi-1">100</span>
+				行进 <span class="wi-2">712.8</span><br>	
+				物资 <span class="wi-3">5</span>
+			</p>
+			<div class="hero-info">
+				<div class="inner">
+					<div class="progress">
+						<div class="progressbar"></div>
+						<div class="progresstxt">100/100</div>
+					</div>
+					<p>《寻秦行动》先锋测试</p>
+				</div>
+				<img src="static/images/h1.png" alt="hero" class="hero">
+			</div>
+			<div class="nearby">
+				<div class="title">附近</div>
+				<ul class="img-list">
+					<li>
+						<img src="static/images/s1.png" id="10" alt="s1">
+						<strong>凉皮</strong>初级食品
+					</li>
+					<li>
+						<img src="static/images/s2.png"  id="10" alt="s2">
+						<strong>胡辣汤</strong>初级食品
+					</li>
+					<li>
+						<img src="static/images/s3.png" id="40" alt="s3">
+						<strong>肉夹馍</strong>中级食品
+					</li>
+					<li>
+						<img src="static/images/s4.png" id="80" alt="s4">
+						<strong>羊肉泡馍</strong>高级食品
+					</li>
+					<li>
+						<img src="static/images/s5.png" id="40" alt="s5">
+						<strong>岐山哨子面</strong>中级食品
+					</li>
+				</ul>
+			</div>
+			<div class="show-box">
+				<div class="eat-box">
+					<img  class="hide" src="static/images/s1.png" id="" alt="美食">
+					<div class="mask hide"></div>
+				</div>
+				<div class="start-tip hide">
+					<img class="st1" src="static/images/d1.png" alt="d1">
+				</div>
+				<div class="mask tips-mask">
+					<p class="tips">经过长途跋涉你已顺利进入西安市区</p>
+				</div>
+			</div>
+			
+		</div>
+	</script>
+	<script type="text/html" id="resultTpl">
+		<div class="result-box">
+			<img src="static/images/title1.png" alt="a" class="logo">
+			<div class="title">第[score]名</div>
+			<p>本场人数100</p>
+			<p>
+				<strong>[content]</strong>
+			</p>
+			<div class="tool-box">
+				<a href="/spe/2017xunqin/index.php">再玩一次</a>
+				<a href="javascript:;" class="share-btn">立即分享</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="noticeTpl">
+		<div class="notice-box">
+			<ul class="notice-list">
+				<!-- <li>aaa <img src="static/images/i1.png" alt="i1"> bbb - 第98名产生</li> -->
+			</ul>
+		</div>
+	</script>
+	<script type="text/javascript" src="static/scripts/zepto.min.js"></script>
+	<script type="text/javascript" src="static/scripts/preLoader.js"></script>
+	<script type="text/javascript" src="static/scripts/data.js"></script>
+	<script type="text/javascript" src="static/scripts/fx.js"></script>
+	<script type="text/javascript" src="static/scripts/main.js?18"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
+	<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
+	<script>
+	TJData.config({
+	    h5_id: '5a17f7d78ac196003d39ffe7',
+	    init: 'init'
+	});
+	$.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
+	    wx.config({
+	        appId: res.appId,
+	        timestamp: res.timestamp,
+	        nonceStr: res.nonceStr,
+	        signature: res.signature,
+	        //debug    : true,
+	        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareWeibo', 'onMenuShareQQ', 'showOptionMenu',  'showMenuItems','showAllNonBaseMenuItem']
+	    });
+	    wx.ready(function () {
+	        var shareData = {
+	            title: '西城高铁标题',
+	            desc: '西城高铁描述！',
+	            link: 'http://wx.hxpic.com/spe/2017xunqin/index.php',
+	            imgUrl: 'http://wx.hxpic.com/spe/well/static/images/share.png'
+	        };
+	        //获取网络类型
+	        wx.getNetworkType({
+	            success: function (res) {
+	                TJData.config({
+	                    h5_id: '5a17f7d78ac196003d39ffe7',
+	                    networkType: res.networkType
+	                });
+	            }, fail: function (res) {
+	            }
+	        });
+	        wx.onMenuShareTimeline({
+	            title: shareData.title,
+	            desc: shareData.desc,
+	            link: TJData.shareLink(shareData.link),
+	            imgUrl: shareData.imgUrl,
+	            success: TJData.shareTimeline
+	        });
+	        wx.onMenuShareAppMessage({
+	            title: shareData.title,
+	            desc: shareData.desc,
+	            link: TJData.shareLink(shareData.link),
+	            imgUrl: shareData.imgUrl,
+	            success: TJData.shareAppMessage
+	        });
+	    });
+	}, 'json');
+	</script>
+</body>
+</html>
