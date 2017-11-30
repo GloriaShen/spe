@@ -1,0 +1,39 @@
+.prepare-page, .main-page{
+	width: 100%;height: 100%;
+	overflow:hidden;
+	position: absolute;z-index: 100;
+	top: 0;left: 0;
+	.inner{
+		position: relative;
+	}
+}
+/* preloader css */
+.prepare-page {
+	z-index: 110;
+	background: #fff;
+	text-align: center;
+	.inner{
+		position: absolute;
+		top: 45%;
+		left: 0;
+		width: 100%;
+	}
+	.loading{
+		margin: -.5rem auto 0;
+		width: 3.4rem;
+	}
+	.progresstext{
+
+	}
+	.progress{
+		margin: 1rem auto;
+		width: 3rem;
+		height: .1rem;
+		border-radius: .1rem;
+		background-color: #c2c2c2;
+	}
+	.progressbar{
+		height: 100%;width: 0;
+		background-color: #7b9c20;
+	}
+}
