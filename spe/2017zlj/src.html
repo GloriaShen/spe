@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2017自流井</title>
+	 <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/styles/style.css?556">
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+</head>
+<body>
+	<div class="music roll">
+		<!-- <audio id="audio" src="./static/images/bgm.mp3" preload="auto" loop hidden="true"/> -->
+	</div>
+	<div class="prepare-page">
+		<div class="inner">
+			<img class="loading" src="./static/images/loading.png">
+			<div class="progress">
+				<div class="progressbar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="main-page">
+		<div class="start-box">
+			<img class="title" src="./static/images/title.png" alt="你是不是自贡人？" class="title">
+			<img class="xj" src="./static/images/dec.png" alt="xj" /> 
+			<a class="start-btn"></a>
+		</div>
+		<div class="qa-box" id="qaBox">
+			
+
+			<!-- <h6 class="question">
+				<span class="qindex">1</span>
+				<i class="qtype">多选</i>
+				行人通过人行横道，要按人行横道灯的指示通行。小明在通过人行横道线前，看到人行横道红灯亮时，应该（  ）
+			</h6>
+			<ul class="answer-list">
+				<li><label><input type="radio" name="answer" value="A" > <i></i>A、迅速通过人行横道 </label></li>
+				<li><label><input type="radio" name="answer" value="B" > <i></i>B、在人行横道线前等待 </label></li>
+				<li><label><input type="radio" name="answer" value="C" > <i></i>C、缓慢通过人行横道  </label></li>
+				<li><label><input type="radio" name="answer" value="D" > <i></i>D、绕开人行横道通过 </label></li>
+			</ul>
+			<a class="qa-btn" href="javascript:;">确 认</a> -->
+			<!-- <ul class="answer-list">
+				<li><label><input type="checkbox" name="answer" value="A" > <i></i>A、迅速通过人行横道 </label></li>
+				<li><label><input type="checkbox" name="answer" value="B" > <i></i>B、在人行横道线前等待 </label></li>
+				<li><label><input type="checkbox" name="answer" value="C" > <i></i>C、缓慢通过人行横道  </label></li>
+				<li><label><input type="checkbox" name="answer" value="D" > <i></i>D、绕开人行横道通过 </label></li>
+			</ul> -->
+			<!-- <div class="tip-box wrong">
+				<img class="qa-dec qdec-1" src="./static/images/p1.png" alt="装饰图">
+
+				<p>恭喜你，回答正确！<br>再接再厉</p>
+				<img class="a-dec" src="./static/images/i_right.png" />
+
+				<p>很抱歉，您答错了！<br>正确答案是 A、B、C</p>
+				<img class="a-dec" src="./static/images/i_wrong.png" />
+
+			</div> -->
+		</div>
+		<div class="result-box">
+			<!-- <p>您的本次测评成绩<br><em>50</em>分</p>
+			<p class="words">我很沮丧我想静静</p>
+			<img class="xj" src="./static/images/i4.png" /> -->
+
+			<!-- <a class="prize-btn" href="javascript:;">生成专属奖状</a> -->
+
+			<!-- <div class="img-box">
+				<img src="./static/images/test.png" alt="">
+			</div>
+			<p>长按奖状，保存这一刻</p>
+			<div class="again-box">
+				<div>
+					<a href="/">再来一次</a>
+					<a href="javascript:;">让朋友试试</a>
+				</div>
+				<img class="logo" src="./static/images/logo.png">
+			</div>
+			<div class="mask">
+				<img class="arrow" src="./static/images/i_arrow.png" alt="1">
+				<p>邀请朋友来测试  <br>自流井区文明宣传从我做起！<br> 小井为你发奖章！</p>
+				<img class="xj" src="./static/images/i_share.png" alt="2">
+			</div> -->
+
+		</div>
+	</div>
+	<script type="text/html" id="qaTpl">
+		<div class="qa-extra">
+			<h6 class="qa-title">坚持三创联动<br>推动老城复兴</h6>
+			<div class="qa-words">
+				<p><strong>我们创建的追求</strong>让老百姓成为创建工作的最大受益者。</p>
+				<p><strong>我们创建的根本</strong>增强群众归属感、幸福感、自豪感。</p>
+			</div>
+			<br>
+			<p>为了您 、为了我、为了我们大家的言行更文明，生活更美好，自贡市正在创建全国文明城市。 　　</p>
+			<p>衷心希望创文工作让您感到非常好！非常满意！</p>
+		
+			<a class="get-result">查看我的测试结果</a>
+		</div>
+	</script>
+	<script type="text/html" id="maskTpl">
+		<div class="again-box">
+			<div>
+				<a class="agin-btn" href="javascript:;">再来一次</a>
+				<a class="share-btn" href="javascript:;">让朋友试试</a>
+			</div>
+			<img class="logo" src="./static/images/logo.png">
+		</div>
+		<div class="mask">
+			<img class="arrow" src="./static/images/i_arrow.png" alt="1">
+			<p>邀请朋友来测试  <br>自流井区文明宣传从我做起！<br> 小井为你发奖章！</p>
+			<img class="xj" src="./static/images/i_share.png" alt="2">
+		</div>
+	</script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+	<script type="text/javascript" src="./static/scripts/preLoader.js"></script>
+	<script type="text/javascript" src="./static/scripts/data.js"></script>
+	<script type="text/javascript" src="./static/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@-webkit-keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); }
+	to {  opacity: 1 }
+}
+@keyframes moveFromTop {
+	from { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+	to {  opacity: 1 }
+}
+@-webkit-keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); }
+	to {  opacity: 1 }
+}
+@keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+	to {  opacity: 1 }
+}
+@-webkit-keyframes moveFromRight {
+	from { -webkit-transform: translateX(100%); }
+	to {  opacity: 1 }
+}
+@keyframes moveFromRight {
+	from { -webkit-transform: translateX(100%); transform: translateX(100%); }
+	to {  opacity: 1 }
+}
+@-webkit-keyframes moveFromLeft {
+	from { -webkit-transform: translateX(-100%); }
+	to {  opacity: 1 }
+}
+@keyframes moveFromLeft {
+	from { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+	to {  opacity: 1 }
+}

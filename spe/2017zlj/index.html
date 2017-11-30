@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>你的举手之劳，自贡都能感知到</title>
+	 <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/styles/style.min.css?2017">
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+</head>
+<body>
+	<div class="music roll">
+		<audio id="audio" src="./static/images/music.mp3" preload="auto" loop hidden="true"/>
+	</div>
+	<div class="prepare-page">
+		<div class="inner">
+			<img class="loading" src="./static/images/loading.png">
+			<div class="progress">
+				<div class="progressbar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="main-page">
+		<div class="start-box">
+			<!-- <img class="title" src="./static/images/title.png" alt="你是不是自贡人？" class="title">
+			<img class="xj" src="./static/images/dec.png" alt="xj" /> 
+			<a class="start-btn"></a> -->
+		</div>
+		<div class="qa-box" id="qaBox">
+			
+		</div>
+		<div class="result-box"></div>
+	</div>
+	<script type="text/html" id="qaTpl">
+		<div class="qa-extra">
+			<div class="qa-words">
+				<p>为了您 、为了我、为了我们大家的言行更文明，生活更美好，自贡市正在创建全国文明城市。 　　</p>
+				<p>衷心希望创文工作让您感到非常好！非常满意！</p>
+				<a class="get-result">查看我的测试结果</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="maskTpl">
+		<div class="again-box">
+			<div>
+				<a class="agin-btn" href="http://wx.hxpic.com/spe/well/index.php">再来一次</a>
+				<a class="share-btn" href="javascript:;">让朋友试试</a>
+			</div>
+			<img class="logo" src="./static/images/logo.png">
+		</div>
+		<div class="mask">
+			<img class="arrow" src="./static/images/i_arrow.png" alt="1">
+			<p>邀请朋友来测试  <br>自流井区文明宣传从我做起！<br> 小井为你发奖章！</p>
+			<img class="xj" src="./static/images/i_share.png" alt="2">
+		</div>
+	</script>
+	<script type="text/javascript" src="./static/scripts/zepto.min.js"></script>
+	<script type="text/javascript" src="./static/scripts/preLoader.js"></script>
+	<script type="text/javascript" src="./static/scripts/main.js?2017"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
+	<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
+	<script>
+	    TJData.config({
+	        h5_id:'5a17f7d78ac196003d39ffe7'
+	    });
+
+	    $.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
+	        wx.config({
+	            appId    : res.appId,
+	            timestamp: res.timestamp,
+	            nonceStr : res.nonceStr,
+	            signature: res.signature,
+	            //debug    : true,
+	            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareWeibo', 'onMenuShareQQ', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem']
+	        });
+	        wx.ready(function () {
+	            var shareData = {
+	                title : '你的举手之劳，自贡都能感知到',
+	                desc  : '你是不是资格自贡人？测一下就晓得咯！',
+	                link  : 'http://wx.hxpic.com/spe/well/index.php',
+	                imgUrl: 'http://wx.hxpic.com/spe/well/static/images/share.png'
+	            };
+	            wx.onMenuShareTimeline({
+	                title: shareData.title,
+	                desc: shareData.desc,
+	                link: TJData.shareLink(shareData.link),
+	                imgUrl: shareData.imgUrl,
+	                success: TJData.shareTimeline
+	            });
+	            wx.onMenuShareAppMessage({
+	                title: shareData.title,
+	                desc: shareData.desc,
+	                link: TJData.shareLink(shareData.link),
+	                imgUrl: shareData.imgUrl,
+	                success: TJData.shareAppMessage
+	            });
+	            console.log(TJData.shareLink(shareData.link));
+	            console.log(shareData.link);
+	        });
+	    }, 'json');
+	</script>
+</body>
+</html>
