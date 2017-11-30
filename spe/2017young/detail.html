@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2017成都young榜</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/barrager.css">
+	<!-- <link rel="prefetch" href="assets/bgm.mp3" />  -->
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+</head>
+<body>
+<!-- <div class="music roll">
+	<audio id="audio" src="assets/bgm.mp3" preload="auto" loop hidden="true"/>
+</div> -->
+<div class="detail">
+	<?php
+	echo $html;
+	?>
+    
+	<div class="barrager-box"></div>
+	<div class="send-box">
+		<input type="text" name="words" placeholder="发送弹幕～" />
+		<input type="button" class="submit-btn" value="发 送" />
+	</div>
+</div>
+<!-- <script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script> -->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.barrager.js"></script>
+<script type="text/javascript" src="assets/js/preLoader.js"></script>
+<script type="text/javascript" src="assets/main.js?21"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
+<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
+<script>
+    TJData.config({
+        h5_id:'hqc_marathon'
+    });
+
+    $.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
+        wx.config({
+            appId    : res.appId,
+            timestamp: res.timestamp,
+            nonceStr : res.nonceStr,
+            signature: res.signature,
+            //debug    : true,
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareWeibo', 'onMenuShareQQ', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem']
+        });
+        wx.ready(function () {
+            var shareData = {
+                title : '2017成都young榜',
+                desc  : '发现生活方式 创新美好未来',
+                link  : "http://wx.hxpic.com/spe/2017young/index.php",
+                imgUrl: 'http://wx.hxpic.com/spe/2017young/assets/images/share.jpg'
+            };
+            wx.onMenuShareTimeline({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareTimeline
+            });
+            wx.onMenuShareAppMessage({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareAppMessage
+            });
+            console.log(TJData.shareLink(shareData.link));
+            console.log(shareData.link);
+        });
+    }, 'json');
+</script>
+</html>
+</body>
+</html>

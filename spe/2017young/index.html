@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2017成都young榜</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/style.css?1212">
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+</head>
+<body>
+	<div class="prepare-page">
+		<div class="inner">
+			<!-- <img class="loading" src="./static/images/loading.png"> -->
+			<span class="progresstext"></span>
+			<div class="progress">
+				<div class="progressbar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="main-box">
+		<div class="page-1">
+			<img src="assets/images/logo.png" alt="logo" class="logo">
+			<img src="assets/images/sp.png" alt="sp" class="sp">
+			<img src="assets/images/titile.png" alt="" class="title">
+			<img src="assets/images/2-2.png" alt="22" class="jr">
+			<!-- <div class="tool-box">
+				<a href=""></a>
+				<a href=""></a>
+			</div> -->
+		</div>
+		<div class="page-2">
+			<img src="assets/images/xian.png" alt="xian" class="xian">
+			<a href="detail.php?page=1"><img src="assets/images/j1.png" alt="prize"></a>
+			<a href="detail.php?page=2"><img src="assets/images/j2.png" alt="prize"></a>
+			<a href="detail.php?page=3"><img src="assets/images/j3.png" alt="prize"></a>
+			<a href="detail.php?page=4"><img src="assets/images/j4.png" alt="prize"></a>
+			<a href="detail.php?page=5"><img src="assets/images/j5.png" alt="prize"></a>
+			<a href="detail.php?page=6"><img src="assets/images/j6.png" alt="prize"></a>
+			<a href="detail.php?page=7"><img src="assets/images/j7.png" alt="prize"></a>
+			<a href="detail.php?page=8"><img src="assets/images/j8.png" alt="prize"></a>
+			<img src="assets/images/6.jpg" alt="6" class="brands">
+		</div>
+	</div>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/preLoader.js"></script>
+<script type="text/javascript" src="assets/main.js?122"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
+<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
+<script>
+    TJData.config({
+        h5_id:'hqc_marathon'
+    });
+
+    $.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
+        wx.config({
+            appId    : res.appId,
+            timestamp: res.timestamp,
+            nonceStr : res.nonceStr,
+            signature: res.signature,
+            //debug    : true,
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareWeibo', 'onMenuShareQQ', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem']
+        });
+        wx.ready(function () {
+            var shareData = {
+                title : '2017成都young榜',
+                desc  : '发现生活方式 创新美好未来',
+                link  : "http://wx.hxpic.com/spe/2017young/index.php",
+                imgUrl: 'http://wx.hxpic.com/spe/2017young/assets/images/share.jpg'
+            };
+            wx.onMenuShareTimeline({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareTimeline
+            });
+            wx.onMenuShareAppMessage({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareAppMessage
+            });
+            console.log(TJData.shareLink(shareData.link));
+            console.log(shareData.link);
+        });
+    }, 'json');
+</script>
+</body>
+</html>

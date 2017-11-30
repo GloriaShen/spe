@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2017成都young榜</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<script>
+	    var deviceWidth = document.documentElement.clientWidth;
+	    if(deviceWidth > 750) deviceWidth = 750;
+	    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+	</script>
+</head>
+<body>
+	<div class="prepare-page">
+		<div class="inner">
+			<!-- <img class="loading" src="./static/images/loading.png"> -->
+			<span class="progresstext"></span>
+			<div class="progress">
+				<div class="progressbar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="main-box">
+		<div class="imgs">
+			<img src="./assets/images/1.jpg" alt="1">
+			<img src="./assets/images/2.jpg" alt="2">
+			<img src="./assets/images/3.jpg" alt="3">
+			<img src="./assets/images/4.jpg" alt="4">
+		</div>
+		<!-- <div class="tool-box">
+			<a href=""></a>
+			<a href=""></a>
+		</div> -->
+		<div class="links">
+			<a href="detail.php?page=1"></a>
+			<a href="detail.php?page=2"></a>
+			<a href="detail.php?page=3"></a>
+			<a href="detail.php?page=4"></a>
+			<a href="detail.php?page=5"></a>
+			<a href="detail.php?page=6"></a>
+			<a href="detail.php?page=7"></a>
+			<a href="detail.php?page=8"></a>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/preLoader.js"></script>
+<script type="text/javascript" src="assets/main.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
+<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
+<script>
+    TJData.config({
+        h5_id:'hqc_marathon'
+    });
+
+    $.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
+        wx.config({
+            appId    : res.appId,
+            timestamp: res.timestamp,
+            nonceStr : res.nonceStr,
+            signature: res.signature,
+            //debug    : true,
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareWeibo', 'onMenuShareQQ', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem']
+        });
+        wx.ready(function () {
+            var shareData = {
+                title : '2017成都young榜',
+                desc  : '发现生活方式 创新美好未来',
+                link  : "http://wx.hxpic.com/spe/2017young/index.php",
+                imgUrl: 'http://wx.hxpic.com/spe/2017young/assets/images/share.jpg'
+            };
+            wx.onMenuShareTimeline({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareTimeline
+            });
+            wx.onMenuShareAppMessage({
+                title: shareData.title,
+                desc: shareData.desc,
+                link: TJData.shareLink(shareData.link),
+                imgUrl: shareData.imgUrl,
+                success: TJData.shareAppMessage
+            });
+            console.log(TJData.shareLink(shareData.link));
+            console.log(shareData.link);
+        });
+    }, 'json');
+</script>
+</body>
+</html>
