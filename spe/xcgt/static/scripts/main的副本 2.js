@@ -145,15 +145,17 @@ var Gl = {
 
 	},
 	eating: function(el){
-		var blue = el.attr('blue'),
+		var mask = $('.eat-box .mask'),
+			blue = el.attr('blue'),
 			idx = el.attr('class').substr(1),
 			num, t, temp, eat, dnum;
 		
+		mask.removeClass('hide').text(4);
 		
 		if(blue<3){
-			num = 2;
+			num = 5;
 		}else{
-			num = (blue < 4 ? 4 : 6);
+			num = (blue < 4 ? 20 : 30);
 		}
 		temp = Math.floor($('.progresstxt').text().split('/')[0]) + num;
 		temp = temp > 100 ? 100 : temp;
@@ -164,9 +166,17 @@ var Gl = {
 		clearTimeout(Gl.dyingTime);
 		Gl.dying();
 
-		$('.progress i').remove();
-		el.remove();
-		
+		(function eat(){
+			dnum = Math.floor(mask.text()) - 1;
+			if(dnum>0){
+				mask.text(dnum);
+				t = setTimeout(eat, 1000);
+			}else{
+				mask.addClass('hide');
+				$('.progress i').remove();
+				clearTimeout(t);
+			}
+		})();
 	},
 	person: function(){
 		var t, hero = $('.hero'), n = 1;
@@ -184,8 +194,7 @@ var Gl = {
 		})();
 	},
 	dropSth: function(){
-		var  an = 0,
-			$foodbox = $('.food-box');
+		var  an = 0;
 		function addFood(){
 			var rn = Math.floor(Math.random()*(5-1+1))+1,
 			ln = Math.floor(Math.random()*(36-(-40)+1)+(-40))/10,
@@ -195,12 +204,12 @@ var Gl = {
 			}else{
 				blue = (rn < 4 ? 3 : 4);
 			}
-			$foodbox.append('<img blue="'+ blue +'" class="f'+ rn +'" src="static/images/f'+ rn +'.png" />');
+			$('.food-box').append('<img blue="'+ blue +'" class="f'+ rn +'" src="static/images/f'+ rn +'.png" />');
 			$('.food-box img:last-child').css({
 				transform: 'translate('+ ln +'rem, -100%)'
 			});
-			an = $('.food-box img').length;
-			if(an>5){
+			an++;
+			if(an>6){
 				$('.food-box img:first-child').remove();
 			}
 			Gl.dropTime = setTimeout(addFood, 500); 
@@ -281,7 +290,7 @@ init = function(){
 			$('.tips-mask').remove();
 			$('.start-tip').removeClass('hide');
 		} else {
-			Gl.current.addClass('clicked').html('但由于过度饥饿，你已无法前进，<br />饥饿加剧...');
+			Gl.current.addClass('clicked').html('但由于过度饥饿，你已无法前进<br>毒气正在蔓延...');
 		}
 		
 	})
@@ -299,6 +308,7 @@ init = function(){
 			Gl.loopData();
 
 			configMap.mainPage.delegate('.food-box img', 'click', function(){
+				if(Math.floor($('.eat-box .mask').text()) > 1){ return; }
 				Gl.person();
 				Gl.eating($(this));
 			});

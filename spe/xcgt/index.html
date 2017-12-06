@@ -4,7 +4,7 @@
 	<title>西城高铁</title>
 	 <meta http-equiv=Content-Type content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="static/styles/style.css?18">
+	<link rel="stylesheet" type="text/css" href="static/styles/style.css?2018">
 	<script>
 	    var deviceWidth = document.documentElement.clientWidth;
 	    if(deviceWidth > 750) deviceWidth = 750;
@@ -13,14 +13,17 @@
 
 </head>
 <body>
+<audio id="audio1" class="audio" src="./static/mp3/bg.mp3" autoplay="autoplay" preload="auto" loop hidden="true"></audio>
+<audio id="audio2" class="audio" src="./static/mp3/train.mp3" preload="auto" loop hidden="true"></audio>
+<audio id="audio3" class="audio" src="./static/mp3/pickup.mp3" preload="auto" loop hidden="true"></audio>
 	<div id="container" class="r90">
 		<div class="prepare-page">
 			<div class="inner">
-				<!-- <img class="loading" src="./static/images/loading.png"> -->
-				<div class="progresstext"></div>
-				<div class="progress">
+				<img class="loading" src="./static/images/loading.gif">
+				<div class="progresstext">加载中···</div>
+				<!-- <div class="progress">
 					<div class="progressbar"></div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="main-page">
@@ -97,36 +100,7 @@
 				</div>
 				<img src="static/images/h1.png" alt="hero" class="hero">
 			</div>
-			<div class="nearby">
-				<div class="title">附近</div>
-				<ul class="img-list">
-					<li>
-						<img src="static/images/s1.png" id="10" alt="s1">
-						<strong>凉皮</strong>初级食品
-					</li>
-					<li>
-						<img src="static/images/s2.png"  id="10" alt="s2">
-						<strong>胡辣汤</strong>初级食品
-					</li>
-					<li>
-						<img src="static/images/s3.png" id="40" alt="s3">
-						<strong>肉夹馍</strong>中级食品
-					</li>
-					<li>
-						<img src="static/images/s4.png" id="80" alt="s4">
-						<strong>羊肉泡馍</strong>高级食品
-					</li>
-					<li>
-						<img src="static/images/s5.png" id="40" alt="s5">
-						<strong>岐山哨子面</strong>中级食品
-					</li>
-				</ul>
-			</div>
 			<div class="show-box">
-				<div class="eat-box">
-					<img  class="hide" src="static/images/s1.png" id="" alt="美食">
-					<div class="mask hide"></div>
-				</div>
 				<div class="start-tip hide">
 					<img class="st1" src="static/images/d1.png" alt="d1">
 				</div>
@@ -134,7 +108,7 @@
 					<p class="tips">经过长途跋涉你已顺利进入西安市区</p>
 				</div>
 			</div>
-			
+			<div class="food-box"></div>
 		</div>
 	</script>
 	<script type="text/html" id="resultTpl">
@@ -162,12 +136,12 @@
 	<script type="text/javascript" src="static/scripts/preLoader.js"></script>
 	<script type="text/javascript" src="static/scripts/data.js"></script>
 	<script type="text/javascript" src="static/scripts/fx.js"></script>
-	<script type="text/javascript" src="static/scripts/main.js?18"></script>
+	<script type="text/javascript" src="static/scripts/main.js?2018"></script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.1.js"></script>
 	<script src="http://wx.hxpic.com/Common/js/TJDate.js"></script>
 	<script>
 	TJData.config({
-	    h5_id: '5a17f7d78ac196003d39ffe7',
+	    h5_id: '5a1fdee8475afa00321d350a',
 	    init: 'init'
 	});
 	$.post('http://wx.hxpic.com/wxshare_cdfer.php', {"url": window.location.href}, function (res) {
@@ -181,16 +155,16 @@
 	    });
 	    wx.ready(function () {
 	        var shareData = {
-	            title: '西城高铁标题',
-	            desc: '西城高铁描述！',
+	            title: '大吉大利，西安吃鸡',
+	            desc: '指挥官：小伙子，你已顺利从成都到了西安，【生存】就是你最大的任务',
 	            link: 'http://wx.hxpic.com/spe/2017xunqin/index.php',
-	            imgUrl: 'http://wx.hxpic.com/spe/well/static/images/share.png'
+	            imgUrl: 'http://wx.hxpic.com/spe/2017xunqin/static/images/share.jpg'
 	        };
 	        //获取网络类型
 	        wx.getNetworkType({
 	            success: function (res) {
 	                TJData.config({
-	                    h5_id: '5a17f7d78ac196003d39ffe7',
+	                    h5_id: '5a1fdee8475afa00321d350a',
 	                    networkType: res.networkType
 	                });
 	            }, fail: function (res) {

@@ -9,14 +9,18 @@ html, body{
 }
 .prepare-page{
 	/*display: none;*/
-	color: #f17b07;
+	color: #fff;
 	font-size: .4rem;
+	background: #000;
+	.loading{
+		width: 1.2rem;
+	}
 	.progress{
 		margin: .1rem auto;
-		background-color: #c2c2c2;
+		background-color: #ccc;
 	}
 	.progressbar{
-		background-color: #f17b07;
+		background-color: #fff;
 	}
 }
 
@@ -161,9 +165,19 @@ html, body{
 		background-color: rgba(0,0,0,.8);
 		p{
 			position: absolute;left: 50%;top: 50%;
-			padding: 1rem 0;
+			padding: 5rem 0;
+			width: 100%;
 			transform: translate(-50%, -50%);
 		}
+	}
+
+}
+.food-box{
+	img{
+		width: .93rem;
+		position: absolute;left: 50%;top: 0;
+		-webkit-animation: p4i 3s ease-in forwards;
+		animation: p4i 3s ease-in forwards;
 	}
 }
 
@@ -176,12 +190,12 @@ html, body{
 		left: 1.3rem;top: 1.7rem;
 	}
 	.st2{
-		width: 7.61rem;
+		width: 7.43rem;
 		left: 3.1rem;top: 1.5rem;
 	}
 	.st3{
-		width: 6.27rem;
-		right: 0;top: 1.55rem;
+		width: 3.88rem;
+		left: 45%;top: 1.55rem;
 	}
 }
 .main-info{
@@ -414,7 +428,7 @@ html, body{
 	}
 	.save-img{
 		width: 3.93rem;
-		position: absolute;left: 50%;bottom: .3;
+		position: absolute;left: 50%;bottom: .3rem;
 		margin-left: -2rem;
 	}
 }
